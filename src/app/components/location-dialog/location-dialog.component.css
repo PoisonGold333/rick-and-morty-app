@@ -1,0 +1,146 @@
+.dialog-container {
+  min-width: 450px;
+  max-width: 600px;
+}
+
+h2[mat-dialog-title] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #3f51b5;
+  margin: 0;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.loading-container p {
+  margin-top: 20px;
+  color: #666;
+}
+
+.location-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.location-header h3 {
+  color: #3f51b5;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #3f51b5;
+}
+
+.info-item mat-icon {
+  color: #3f51b5;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.info-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-item strong {
+  font-weight: 600;
+  color: #333;
+}
+
+.info-item span {
+  color: #666;
+  font-size: 0.95em;
+}
+
+.residents-section {
+  background: #e3f2fd;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.residents-section h4 {
+  color: #1976d2;
+  margin: 0 0 15px 0;
+}
+
+.residents-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #555;
+  font-style: italic;
+}
+
+.residents-note mat-icon {
+  color: #1976d2;
+  font-size: 20px;
+}
+
+.error-message {
+  text-align: center;
+  color: #f44336;
+  padding: 40px 20px;
+}
+
+.error-message mat-icon {
+  font-size: 3em;
+  width: 3em;
+  height: 3em;
+  margin-bottom: 15px;
+}
+
+mat-dialog-actions {
+  justify-content: flex-end;
+  padding: 20px 24px;
+}
+
+mat-dialog-actions button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 500px) {
+  .dialog-container {
+    min-width: auto;
+    max-width: 95vw;
+  }
+  
+  .location-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .info-item {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,16 @@
+.character-card {
+  max-width: 300px;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+}
+
+.character-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}

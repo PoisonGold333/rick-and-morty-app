@@ -6,16 +6,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterOutlet, RouterModule } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { RickMortyApiService } from './services/rick-morty-api.service';
-import { Character, CharacterResponse } from './models/character.model';
-import { CharacterDetailDialogComponent } from './components/character-detail-dialog/character-detail-dialog.component';
-import { CharacterCardComponent } from './components/character-card/character-card.component';
+import { RickMortyApiService } from '../../services/rick-morty-api.service';
+import { Character, CharacterResponse } from '../../models/character.model';
+import { CharacterDetailDialogComponent } from '../../components/character-detail-dialog/character-detail-dialog.component';
+import { CharacterCardComponent } from '../../components/character-card/character-card.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-characters',
   standalone: true,
   imports: [
     CommonModule,
@@ -25,16 +23,12 @@ import { CharacterCardComponent } from './components/character-card/character-ca
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    RouterOutlet,
-    RouterModule,
-    MatToolbarModule,
     CharacterCardComponent
   ],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './characters.component.html',
+  styleUrls: ['./characters.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'Rick and Morty App';
+export class CharactersComponent implements OnInit {
   characters: Character[] = [];
   loading = true;
   
@@ -78,7 +72,7 @@ export class AppComponent implements OnInit {
   }
 
   onPageChange(event: PageEvent) {
-    this.currentPage = event.pageIndex + 1;
+    this.currentPage = event.pageIndex + 1; // Material paginator es 0-based
     this.loadCharacters();
   }
 }

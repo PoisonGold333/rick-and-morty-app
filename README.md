@@ -1,27 +1,87 @@
-# RickAndMortyApp
+# Rick and Morty App 🧪
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.20.
+Mi primer proyecto en Angular que consume la API de Rick and Morty para mostrar información de los personajes.
 
-## Development server
+## ¿Qué hace la aplicación?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Básicamente es una app donde puedes ver todos los personajes de Rick and Morty con sus detalles. Cuando haces clic en un personaje se abre una ventana con más información y puedes ver dónde vive y en qué episodios aparece.
 
-## Code scaffolding
+## Lo que aprendí haciendo esto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Como usar Angular 18 con standalone components
+- Consumir una API REST (la de Rick and Morty)
+- Usar Angular Material para que se vea bonito
+- Hacer navegación entre páginas
+- Crear dialogs (ventanas emergentes)
+- Hacer que funcione en móvil también
 
-## Build
+## Cómo ejecutar el proyecto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
 
-## Running unit tests
+2. **Ejecutar la app:**
+   ```bash
+   ng serve
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. **Abrir en el navegador:**
+   ```
+   http://localhost:4200/
+   ```
 
-## Running end-to-end tests
+## Qué funciona
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Página de Personajes
+- Se ven todos los personajes en tarjetas
+- Tiene paginación (20 personajes por página)
+- Al hacer clic en un personaje se abre un dialog con:
+  - Foto e info básica del personaje
+  - Su ubicación actual (clickeable)
+  - Lista de episodios donde aparece (clickeables)
 
-## Further help
+### Dialogs
+- **Dialog de personaje:** Muestra toda la info del personaje
+- **Dialog de ubicación:** Cuando haces clic en la ubicación del personaje
+- **Dialog de episodio:** Cuando haces clic en algún episodio
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Navegación
+- Header con botones para ir a Personajes, Ubicaciones y Episodios
+- Solo la página de personajes está completa, las otras dos son páginas básicas
+
+## Tecnologías que usé
+
+- Angular 20
+- Angular Material (para los componentes)
+- TypeScript
+- Rick and Morty API
+
+## Estructura del código
+
+```
+src/app/
+├── components/        # Los componentes como tarjetas y dialogs
+├── models/           # Los tipos e interfaces
+├── pages/            # Las páginas principales
+├── services/         # Para conectar con la API
+```
+
+## Lo que me costó más trabajo
+
+- Entender cómo funcionan los standalone components
+- Configurar el routing
+- Hacer que los dialogs se vean bien en móvil
+- Manejar la paginación
+
+## Cosas que se pueden mejorar
+
+- Agregar búsqueda de personajes
+- Completar las páginas de ubicaciones y episodios
+- Agregar filtros
+- Mejorar el diseño
+
+---
+
+**Proyecto realizado para el curso de Angular I en PARQUESOFT**

@@ -1,0 +1,42 @@
+.episodes-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: #3f51b5;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.page-header p {
+  color: #666;
+  font-size: 1.2em;
+  margin: 10px 0 0 0;
+}
+
+.coming-soon {
+  padding: 60px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-top: 40px;
+}
+
+.coming-soon mat-icon {
+  font-size: 4em;
+  width: 4em;
+  height: 4em;
+  color: #4caf50;
+}
+
+.coming-soon h2 {
+  color: #333;
+  margin: 20px 0;
+}
+
+.coming-soon p {
+  color: #666;
+  font-size: 1.1em;
+}

@@ -1,0 +1,71 @@
+<div class="dialog-container">
+  <h2 mat-dialog-title>{{ character.name }}</h2>
+  
+  <mat-dialog-content>
+    <div class="character-info">
+      <img [src]="character.image" [alt]="character.name" class="character-image">
+      
+      <div class="character-details">
+        <div class="basic-info">
+          <p><strong>Status:</strong> 
+            <mat-chip [ngClass]="getStatusClass()">{{ character.status }}</mat-chip>
+          </p>
+          <p><strong>Species:</strong> {{ character.species }}</p>
+          <p><strong>Gender:</strong> {{ character.gender }}</p>
+          <p><strong>Origin:</strong> {{ character.origin.name }}</p>
+        </div>
+        
+        <!-- Ubicación actual -->
+        <div class="location-section">
+          <h3>Ubicación Actual</h3>
+          <button mat-raised-button color="primary" (click)="openLocationDialog()" class="info-button">
+            <mat-icon>location_on</mat-icon>
+            {{ character.location.name }}
+          </button>
+        </div>
+        
+        <!-- Episodios -->
+        <div class="episodes-section">
+          <h3>Episodios ({{ character.episode.length }})</h3>
+          <div class="episodes-grid">
+            <button 
+              *ngFor="let episodeUrl of getFirstEpisodes(); let i = index"
+              mat-stroked-button 
+              color="accent" 
+              (click)="openEpisodeDialog(episodeUrl)"
+              class="episode-button">
+              <mat-icon>tv</mat-icon>
+              Episodio {{ i + 1 }}
+            </button>
+          </div>
+          
+          <button 
+            *ngIf="character.episode.length > 6"
+            mat-button 
+            color="primary"
+            (click)="showAllEpisodes = !showAllEpisodes"
+            class="show-more-button">
+            {{ showAllEpisodes ? 'Ver menos' : 'Ver todos (' + character.episode.length + ')' }}
+          </button>
+          
+          <!-- Episodios adicionales -->
+          <div *ngIf="showAllEpisodes" class="episodes-grid additional-episodes">
+            <button 
+              *ngFor="let episodeUrl of getRemainingEpisodes(); let i = index"
+              mat-stroked-button 
+              color="accent" 
+              (click)="openEpisodeDialog(episodeUrl)"
+              class="episode-button">
+              <mat-icon>tv</mat-icon>
+              Episodio {{ i + 7 }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cerrar</button>
+  </mat-dialog-actions>
+</div>

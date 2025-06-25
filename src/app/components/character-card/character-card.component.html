@@ -1,0 +1,16 @@
+<mat-card class="character-card" (click)="onCharacterClick()">
+  <mat-card-header>
+    <div mat-card-title>{{ character.name }}</div>
+  </mat-card-header>
+  
+  <img mat-card-image [src]="character.image" [alt]="character.name">
+  
+  <mat-card-content>
+    <p><strong>Status:</strong> {{ character.status }}</p>
+    <p><strong>Species:</strong> {{ character.species }}</p>
+  </mat-card-content>
+  
+  <mat-card-actions>
+    <button mat-button color="primary">Ver Detalles</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,125 @@
+.dialog-container {
+  max-width: 700px;
+  min-width: 500px;
+}
+
+.character-info {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.character-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.character-details {
+  flex: 1;
+}
+
+.basic-info p {
+  margin: 10px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.basic-info strong {
+  min-width: 70px;
+}
+
+.status-alive {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+.status-dead {
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+.status-unknown {
+  background-color: #ff9800 !important;
+  color: white !important;
+}
+
+.location-section, .episodes-section {
+  margin-top: 25px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.location-section h3, .episodes-section h3 {
+  margin: 0 0 15px 0;
+  color: #3f51b5;
+  font-size: 1.2em;
+}
+
+.info-button {
+  width: 100%;
+  justify-content: flex-start;
+  text-transform: none;
+}
+
+.episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.episode-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  text-transform: none;
+  min-height: 60px;
+}
+
+.episode-button mat-icon {
+  margin-bottom: 4px;
+}
+
+.additional-episodes {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.show-more-button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .dialog-container {
+    min-width: auto;
+    max-width: 95vw;
+  }
+  
+  .character-info {
+    flex-direction: column;
+  }
+  
+  .character-image {
+    width: 100%;
+    max-width: 300px;
+    align-self: center;
+  }
+  
+  .episodes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
+
+mat-dialog-actions {
+  justify-content: flex-end;
+  padding: 20px 24px;
+}

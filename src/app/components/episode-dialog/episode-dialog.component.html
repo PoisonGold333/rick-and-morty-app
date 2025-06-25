@@ -1,0 +1,74 @@
+<div class="dialog-container">
+  <h2 mat-dialog-title>
+    <mat-icon>tv</mat-icon>
+    Detalles del Episodio
+  </h2>
+  
+  <mat-dialog-content>
+    <div *ngIf="loading" class="loading-container">
+      <mat-spinner></mat-spinner>
+      <p>Cargando episodio...</p>
+    </div>
+    
+    <div *ngIf="!loading && episode" class="episode-details">
+      <div class="episode-header">
+        <h3>{{ episode.name }}</h3>
+        <mat-chip color="accent">{{ episode.episode }}</mat-chip>
+      </div>
+      
+      <div class="episode-info">
+        <div class="info-item">
+          <mat-icon>calendar_today</mat-icon>
+          <div>
+            <strong>Fecha de emisión:</strong>
+            <span>{{ episode.air_date }}</span>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <mat-icon>tv</mat-icon>
+          <div>
+            <strong>Episodio:</strong>
+            <span>{{ episode.episode }}</span>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <mat-icon>people</mat-icon>
+          <div>
+            <strong>Personajes:</strong>
+            <span>{{ episode.characters.length }} personajes aparecen</span>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <mat-icon>schedule</mat-icon>
+          <div>
+            <strong>Creado:</strong>
+            <span>{{ episode.created | date:'medium' }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div *ngIf="episode.characters.length > 0" class="characters-section">
+        <h4>Información del episodio:</h4>
+        <p class="characters-note">
+          <mat-icon>info</mat-icon>
+          En este episodio aparecen {{ episode.characters.length }} personajes de la serie Rick and Morty.
+        </p>
+      </div>
+    </div>
+    
+    <div *ngIf="!loading && !episode" class="error-message">
+      <mat-icon>error</mat-icon>
+      <p>No se pudo cargar la información del episodio.</p>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+      Cerrar
+    </button>
+  </mat-dialog-actions>
+</div>

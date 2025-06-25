@@ -1,0 +1,66 @@
+<div class="dialog-container">
+  <h2 mat-dialog-title>
+    <mat-icon>location_on</mat-icon>
+    Detalles de la Ubicación
+  </h2>
+  
+  <mat-dialog-content>
+    <div *ngIf="loading" class="loading-container">
+      <mat-spinner></mat-spinner>
+      <p>Cargando ubicación...</p>
+    </div>
+    
+    <div *ngIf="!loading && location" class="location-details">
+      <div class="location-header">
+        <h3>{{ location.name }}</h3>
+        <mat-chip color="primary">{{ location.type }}</mat-chip>
+      </div>
+      
+      <div class="location-info">
+        <div class="info-item">
+          <mat-icon>public</mat-icon>
+          <div>
+            <strong>Dimensión:</strong>
+            <span>{{ location.dimension }}</span>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <mat-icon>people</mat-icon>
+          <div>
+            <strong>Residentes:</strong>
+            <span>{{ location.residents.length }} personajes viven aquí</span>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <mat-icon>schedule</mat-icon>
+          <div>
+            <strong>Creado:</strong>
+            <span>{{ location.created | date:'medium' }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div *ngIf="location.residents.length > 0" class="residents-section">
+        <h4>Algunos residentes conocidos:</h4>
+        <p class="residents-note">
+          <mat-icon>info</mat-icon>
+          Esta ubicación aparece en la serie con {{ location.residents.length }} personajes registrados.
+        </p>
+      </div>
+    </div>
+    
+    <div *ngIf="!loading && !location" class="error-message">
+      <mat-icon>error</mat-icon>
+      <p>No se pudo cargar la información de la ubicación.</p>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+      Cerrar
+    </button>
+  </mat-dialog-actions>
+</div>

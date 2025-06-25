@@ -1,0 +1,36 @@
+<div class="characters-page">
+ 
+  <div class="page-header">
+    <h1>Personajes de Rick and Morty</h1>
+    <p>Explora todos los personajes de la serie</p>
+  </div>
+
+
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>Cargando personajes...</p>
+  </div>
+
+ 
+  <div *ngIf="!loading" class="characters-container">
+    <div class="characters-grid">
+      <app-character-card 
+        *ngFor="let character of characters" 
+        [character]="character"
+        (characterClick)="onCharacterClick($event)">
+      </app-character-card>
+    </div>
+
+
+    <div class="pagination-container">
+      <mat-paginator 
+        [length]="totalCharacters"
+        [pageSize]="pageSize"
+        [pageIndex]="currentPage - 1"
+        [pageSizeOptions]="[20]"
+        (page)="onPageChange($event)"
+        showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </div>
+</div>
